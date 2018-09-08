@@ -35,7 +35,7 @@ class TenderloinViewController: UICollectionViewController {
 
 }
 
-extension TenderloinViewController: UICollectionViewDelegateFlowLayout {
+extension TenderloinViewController {
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         guard let products = products else {
             return 0
@@ -51,14 +51,6 @@ extension TenderloinViewController: UICollectionViewDelegateFlowLayout {
         let product = products[indexPath.row]
         cell.product = product
         return cell
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: view.frame.width - 16, height: 160)
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
-        return UIEdgeInsets(top: 8, left: 0, bottom: 8, right: 0)
     }
 }
 
@@ -113,7 +105,15 @@ extension TenderloinViewController {
                 """
             )
         }
-        collectionView.backgroundColor = #colorLiteral(red: 0.8039215803, green: 0.8039215803, blue: 0.8039215803, alpha: 1)
+        collectionView.backgroundColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
+        let flow = collectionView.collectionViewLayout as! UICollectionViewFlowLayout
+        let itemSpacing: CGFloat = 16.0
+        let itemsInOneLine: CGFloat = 1
+        let width = UIScreen.main.bounds.size.width - itemSpacing * CGFloat(itemsInOneLine + 1)
+        flow.sectionInset = UIEdgeInsets(top: itemSpacing, left: 0, bottom: itemSpacing, right: 0)
+        flow.itemSize = CGSize(width: floor(width/itemsInOneLine), height: 160)
+        flow.minimumInteritemSpacing = 16
+        flow.minimumLineSpacing = 16
         collectionView.register(ProductCell.self, forCellWithReuseIdentifier: cellIdentifier)
     }
 }
