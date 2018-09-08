@@ -67,7 +67,7 @@ extension TenderloinViewController {
         setNavigationController()
         setCollectionView()
         getProducts { (products: [Product]?) in
-            self.products = self.products
+            self.products = products
         }
     }
     
