@@ -12,14 +12,13 @@ import XCTest
 class ProductTests: XCTestCase {
     
     private let shop = {
-        return Shop(name: "Samsung Cemerlang", isGold: true)
+        return Shop(id: 1, name: "Samsung Cemerlang")
     }()
     var product: Product?
     
     override func setUp() {
         super.setUp()
-        product = Product(name: "Samsung", price: "Rp 32.000", shop: shop)
-        // Put setup code here. This method is called before the invocation of each test method in the class.
+        product = Product(id: 1, name: "Samsung", price: "Rp 32.000", shop: shop, imageURI: "", badges: [BadgeType.gold, BadgeType.official])
     }
     
     override func tearDown() {
@@ -27,18 +26,44 @@ class ProductTests: XCTestCase {
         super.tearDown()
     }
     
-    func testProductNotNil() {
-        XCTAssertNotNil(product)
-    }
-    
     func testProductHasValidAttribute() {
-        guard let product = product else { return }
+        guard let product = product else { fatalError() }
+        XCTAssertNotNil(product.id)
+        XCTAssertEqual(product.id, 1)
         XCTAssertNotNil(product.name)
         XCTAssertEqual(product.name, "Samsung")
         XCTAssertNotNil(product.price)
         XCTAssertEqual(product.price, "Rp 32.000")
+        XCTAssertNotNil(product.imageURI)
+        XCTAssertEqual(product.imageURI, "")
         XCTAssertNotNil(product.shop)
-        
+        XCTAssertNotNil(product.badges)
+        XCTAssertEqual(product.badges, [BadgeType.gold, BadgeType.official])
+    }
+    
+    func testProductIsDecodable() {
+        let dict: [String: Any] = [
+            "id": 1,
+            "name": "Samsung",
+            "price": "Rp 32.000",
+            "image_uri": "",
+            "badges": [],
+            "shop": [
+                "id": 1,
+                "name": "Samsung Cemerlang"
+            ]
+        ]
+        let data = try! JSONSerialization.data(withJSONObject: dict, options: .prettyPrinted)
+        let product = try! JSONDecoder().decode(Product.self, from: data)
+        XCTAssertNotNil(product.id)
+        XCTAssertEqual(product.id, dict["id"] as! Int)
+        XCTAssertNotNil(product.name)
+        XCTAssertEqual(product.name, dict["name"] as! String)
+        XCTAssertNotNil(product.price)
+        XCTAssertEqual(product.price, dict["price"] as! String)
+        XCTAssertNotNil(product.imageURI)
+        XCTAssertEqual(product.imageURI, dict["image_uri"] as! String)
+        XCTAssertNotNil(product.shop)
     }
     
     func testPerformanceExample() {

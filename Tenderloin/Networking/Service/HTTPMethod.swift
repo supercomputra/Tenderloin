@@ -1,5 +1,5 @@
 //
-//  Shop.swift
+//  HTTPMethod.swift
 //  Tenderloin
 //
 //  Created by Zulwiyoza Putra on 08/09/18.
@@ -8,7 +8,6 @@
 
 import Foundation
 
-struct Shop {
-    let name: String
-    let isGold: Bool
+enum HTTPMethod: String {
+    case get = "GET"
 }

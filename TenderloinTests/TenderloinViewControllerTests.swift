@@ -11,17 +11,36 @@ import XCTest
 
 class TenderloinViewControllerTests: XCTestCase {
     
-    let controller = TenderloinViewController(collectionViewLayout: UICollectionViewLayout())
+    var viewController: TenderloinViewController?
     
     override func setUp() {
         super.setUp()
-        
-        // Put setup code here. This method is called before the invocation of each test method in the class.
+        let networkController = NetworkController()
+        viewController = TenderloinViewController(networkController: networkController, layout: UICollectionViewFlowLayout())
     }
     
     override func tearDown() {
         // Put teardown code here. This method is called after the invocation of each test method in the class.
         super.tearDown()
+    }
+    
+    func testViewControllerNotNil() {
+        XCTAssertNotNil(viewController)
+    }
+    
+    func testGetProductsRequestSuccess() {
+        let expect = expectation(description: "Success getting products")
+        viewController!.getProducts { (products: [Product]?) in
+            XCTAssertNotNil(products)
+            expect.fulfill()
+        }
+        
+        waitForExpectations(timeout: 3) { error in
+            if let error = error {
+                XCTFail("waitForExpectationsWithTimeout errored: \(error)")
+            }
+        }
+        
     }
     
     func testCollectionViewHasCorrectInset() {
