@@ -92,14 +92,14 @@
 		6E8C22132142AE8800DFB285 /* Tenderloin */ = {
 			isa = PBXGroup;
 			children = (
+				6E8C224621438B6F00DFB285 /* ViewControllers */,
 				6E8C22402142E9F600DFB285 /* Models */,
 				6E8C22142142AE8800DFB285 /* AppDelegate.swift */,
 				6E8C22342142CE6100DFB285 /* ProductCell.swift */,
-				6E8C22162142AE8800DFB285 /* TenderloinViewController.swift */,
+				6E8C22362142D10F00DFB285 /* AutoLayout.swift */,
 				6E8C221B2142AE8900DFB285 /* Assets.xcassets */,
 				6E8C221D2142AE8900DFB285 /* LaunchScreen.storyboard */,
 				6E8C22202142AE8900DFB285 /* Info.plist */,
-				6E8C22362142D10F00DFB285 /* AutoLayout.swift */,
 			);
 			path = Tenderloin;
 			sourceTree = "<group>";
@@ -123,6 +123,22 @@
 				6E8C22412142EA0900DFB285 /* Shop.swift */,
 			);
 			path = Models;
+			sourceTree = "<group>";
+		};
+		6E8C224621438B6F00DFB285 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				6E8C224721438B8100DFB285 /* TenderloinViewController */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		6E8C224721438B8100DFB285 /* TenderloinViewController */ = {
+			isa = PBXGroup;
+			children = (
+				6E8C22162142AE8800DFB285 /* TenderloinViewController.swift */,
+			);
+			path = TenderloinViewController;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

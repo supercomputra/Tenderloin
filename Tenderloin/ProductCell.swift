@@ -48,7 +48,11 @@ extension ProductCell {
     
     private func getInfoView() -> UIStackView {
         guard let product = product else {
-            fatalError("Product is found nil, never call getInfoView from outside of didSet method of product attribute")
+            fatalError("""
+                Product is found nil.
+                Please never call getInfoView from outside of didSet method of product attribute.
+                """
+            )
         }
         let nameLabel = getLabel(product.name)
         let shopNameLabel = getLabel(product.shop.name)

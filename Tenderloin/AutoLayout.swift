@@ -11,7 +11,11 @@ import UIKit
 extension UIView {
     func matchSuperviewSize(withPadding padding: CGFloat = 0) {
         guard let superview = superview else {
-            fatalError("The view doesn't have superview")
+            fatalError("""
+                The view doesn't have superview.
+                Make sure the view has been added as a subview to another view.
+                """
+            )
         }
         topAnchor.constraint(equalTo: superview.topAnchor, constant: padding).isActive = true
         bottomAnchor.constraint(equalTo: superview.bottomAnchor, constant: -padding).isActive = true

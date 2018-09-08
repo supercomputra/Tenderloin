@@ -13,8 +13,7 @@ class TenderloinViewController: UICollectionViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        setNavigationController()
-        setCollectionView()
+        setUp()
     }
 
 }
@@ -42,9 +41,18 @@ extension TenderloinViewController: UICollectionViewDelegateFlowLayout {
 }
 
 extension TenderloinViewController {
+    private func setUp() {
+        setNavigationController()
+        setCollectionView()
+    }
+    
     private func setNavigationController(withTitle title: String = "Home") {
         guard let navigationController = navigationController else {
-            fatalError("TenderloinViewController doesn't have a navigationController")
+            fatalError("""
+                TenderloinViewController doesn't have a navigationController.
+                Make sure the TenderloinViewController has been set as a root of a UINavigationController.
+                """
+            )
         }
         navigationController.navigationBar.barTintColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
         navigationItem.title = title
@@ -52,7 +60,11 @@ extension TenderloinViewController {
     
     private func setCollectionView() {
         guard let collectionView = collectionView else {
-            fatalError("TenderloinViewController doesn't have a collectionView")
+            fatalError("""
+                TenderloinViewController doesn't have a collectionView.
+                Make sure TenderloinViewController subclasses UICollectionViewContrller
+                """
+            )
         }
         collectionView.backgroundColor = #colorLiteral(red: 0.8039215803, green: 0.8039215803, blue: 0.8039215803, alpha: 1)
         collectionView.register(ProductCell.self, forCellWithReuseIdentifier: cellIdentifier)
