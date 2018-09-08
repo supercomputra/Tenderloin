@@ -16,6 +16,15 @@ struct Product {
     let imageURI: String
     var imageData: Data?
     let badges: [BadgeType]
+    
+    init(id: Int, name: String, price: String, shop: Shop, imageURI: String, badges: [BadgeType]) {
+        self.id = id
+        self.name = name
+        self.price = price
+        self.shop = shop
+        self.imageURI = imageURI
+        self.badges = badges
+    }
 }
 
 extension Product: Decodable {
