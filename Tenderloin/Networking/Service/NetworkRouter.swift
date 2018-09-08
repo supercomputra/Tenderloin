@@ -26,9 +26,20 @@ class NetworkRouter<Route: RouteType>: NetworkRouterProtcol {
         self.task?.resume()
     }
     
+    func request(_ url: URL, completionHandler: @escaping NetworkRouterCompletionHandler) {
+        let session = URLSession.shared
+        let request = URLRequest(url: url)
+        task = session.dataTask(with: request, completionHandler: { (data: Data?, response: URLResponse?, error: Error?) in
+            completionHandler(data, response, error)
+        })
+        
+        self.task?.resume()
+    }
+    
     func cancel() {
         self.task?.cancel()
     }
+    
 }
 
 extension NetworkRouter {

@@ -50,6 +50,13 @@ extension TenderloinViewController {
         }
         let product = products[indexPath.row]
         cell.product = product
+        if indexPath.row == 0 {
+            cell.position = .top
+        } else if indexPath.row == products.count - 1 {
+            cell.position = .bottom
+        } else {
+            cell.position = .middle
+        }
         return cell
     }
 }
@@ -105,32 +112,55 @@ extension TenderloinViewController {
                 """
             )
         }
-        collectionView.backgroundColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
+        
         let flow = collectionView.collectionViewLayout as! UICollectionViewFlowLayout
         let itemSpacing: CGFloat = 16.0
         let itemsInOneLine: CGFloat = 1
         let width = UIScreen.main.bounds.size.width - itemSpacing * CGFloat(itemsInOneLine + 1)
-        flow.sectionInset = UIEdgeInsets(top: itemSpacing, left: 0, bottom: itemSpacing, right: 0)
-        flow.itemSize = CGSize(width: floor(width/itemsInOneLine), height: 160)
+        let height: CGFloat = 128
+        flow.sectionInset = UIEdgeInsets(top: itemSpacing, left: itemSpacing, bottom: itemSpacing, right: itemSpacing)
+        flow.itemSize = CGSize(width: floor(width/itemsInOneLine), height: height)
         flow.minimumInteritemSpacing = 16
-        flow.minimumLineSpacing = 16
+        flow.minimumLineSpacing = 8
+        
         collectionView.register(ProductCell.self, forCellWithReuseIdentifier: cellIdentifier)
+        collectionView.backgroundColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
     }
 }
 
 
 extension TenderloinViewController {
     typealias GetProductsCompletionHandler = ((_ products: [Product]?) -> Void)?
+    
     func getProducts(completionHandler: GetProductsCompletionHandler = nil) {
-        networkController.searchProducts(key: "Samsung", minPrice: "0", maxPrice: "10000", isWholesale: false, isOfficial: true, golds: 2, startingIndex: 0, items: 30) { (products: [Product]?, errorMessage: String?) in
+        networkController.searchProducts(key: "Philips", minPrice: "0", maxPrice: "10000", isWholesale: false, isOfficial: true, golds: 3, startingIndex: 0, items: 30) { (products: [Product]?, errorMessage: String?) in
             if let errorMessage = errorMessage, errorMessage != "" {
                 if let handler = completionHandler {
                     handler(nil)
                 }
             }
+            
             if let products = products {
                 if let handler = completionHandler {
-                    handler(products)
+                    DispatchQueue.global(qos: .userInitiated).async {
+                        var productsWithImage: [Product] = []
+                        let downloadGroup = DispatchGroup()
+                        for product in products {
+                            downloadGroup.enter()
+                            self.networkController.downloadImage(imageURI: product.imageURI, completionHandler: { (data: Data?, errorMessage: String?) in
+                                if let data = data {
+                                    var product = product
+                                    product.imageData = data
+                                    productsWithImage.append(product)
+                                }
+                                downloadGroup.leave()
+                            })
+                        }
+                        downloadGroup.wait()
+                        DispatchQueue.main.async {
+                            handler(productsWithImage)
+                        }
+                    }
                 }
             }
         }

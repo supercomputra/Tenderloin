@@ -8,6 +8,12 @@
 
 import UIKit
 
+enum ProductCellPosition {
+    case top
+    case bottom
+    case middle
+}
+
 class ProductCell: UICollectionViewCell {
     var product: Product? {
         didSet {
@@ -15,12 +21,11 @@ class ProductCell: UICollectionViewCell {
         }
     }
     
-    let imageView: UIImageView = {
-        let imageView = UIImageView()
-        imageView.contentMode = .scaleAspectFit
-        imageView.backgroundColor = #colorLiteral(red: 0.4745098054, green: 0.8392156959, blue: 0.9764705896, alpha: 1)
-        return imageView
-    }()
+    var position: ProductCellPosition? {
+        didSet {
+            setShadowBasedOnPosition()
+        }
+    }
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -32,6 +37,7 @@ class ProductCell: UICollectionViewCell {
     
     override func prepareForReuse() {
         super.prepareForReuse()
+        position = nil
         for view in contentView.subviews {
             view.removeFromSuperview()
         }

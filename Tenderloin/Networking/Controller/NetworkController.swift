@@ -61,7 +61,7 @@ struct NetworkController {
     func searchProducts(key: String, minPrice: String, maxPrice: String, isWholesale: Bool, isOfficial: Bool, golds: Int, startingIndex: Int, items: Int, completionHandler: @escaping SearchProductCompletionHandler) {
         
         router.request(.searchProduct(key: key, minPrice: minPrice, maxPrice: maxPrice, isWholesale: isWholesale, isOfficial: isOfficial, golds: golds, startingIndex: startingIndex, items: items)) { (data: Data?, response: URLResponse?, error: Error?) in
-            print(error.debugDescription)
+
             if error != nil {
                 completionHandler(nil, "Please check the network connection")
                 return
@@ -84,6 +84,39 @@ struct NetworkController {
                 } catch {
                     completionHandler(nil, NetworkResponse.decodingError.rawValue)
                 }
+            case .error(let error):
+                completionHandler(nil, error)
+                return
+            }
+        }
+    }
+    
+    typealias ImageCompletionHandler = (_ data: Data?, _ error: String?) -> ()
+    func downloadImage(imageURI: String, completionHandler: @escaping ImageCompletionHandler) {
+        guard let url = URL(string: imageURI) else {
+            completionHandler(nil, "The image URI is not a URL")
+            return
+        }
+        
+        router.request(url) { (data: Data?, response: URLResponse?, error: Error?) in
+            
+            if error != nil {
+                completionHandler(nil, "Please check the network connection")
+                return
+            }
+            
+            guard let response = response as? HTTPURLResponse else {
+                return
+            }
+            
+            let result = self.handleNetworkResponse(response)
+            switch result {
+            case .success:
+                guard let data = data else {
+                    completionHandler(nil, NetworkResponse.noData.rawValue)
+                    return
+                }
+                completionHandler(data, nil)
             case .error(let error):
                 completionHandler(nil, error)
                 return

@@ -14,6 +14,7 @@ struct Product {
     let price: String
     let shop: Shop
     let imageURI: String
+    var imageData: Data?
     let badges: [BadgeType]
 }
 
