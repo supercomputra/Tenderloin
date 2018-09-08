@@ -50,6 +50,9 @@
 		6E8C227A2143B07D00DFB285 /* NetworkController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E8C22782143B07D00DFB285 /* NetworkController.swift */; };
 		6E8C227B2143CE4D00DFB285 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E8C22142142AE8800DFB285 /* AppDelegate.swift */; };
 		6E8C227C2143CE5700DFB285 /* TenderloinViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E8C22162142AE8800DFB285 /* TenderloinViewController.swift */; };
+		6E8C227E2143D50400DFB285 /* ProductCellTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E8C227D2143D50400DFB285 /* ProductCellTests.swift */; };
+		6E8C22802143D55C00DFB285 /* ProductCell+ViewConstructor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E8C227F2143D55C00DFB285 /* ProductCell+ViewConstructor.swift */; };
+		6E8C22812143D55C00DFB285 /* ProductCell+ViewConstructor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E8C227F2143D55C00DFB285 /* ProductCell+ViewConstructor.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -92,6 +95,8 @@
 		6E8C22712143A66800DFB285 /* NetworkRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkRouter.swift; sourceTree = "<group>"; };
 		6E8C22742143ADC200DFB285 /* TokopediaAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokopediaAPI.swift; sourceTree = "<group>"; };
 		6E8C22782143B07D00DFB285 /* NetworkController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkController.swift; sourceTree = "<group>"; };
+		6E8C227D2143D50400DFB285 /* ProductCellTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductCellTests.swift; sourceTree = "<group>"; };
+		6E8C227F2143D55C00DFB285 /* ProductCell+ViewConstructor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ProductCell+ViewConstructor.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -149,6 +154,7 @@
 				6E8C22292142AE8900DFB285 /* TenderloinViewControllerTests.swift */,
 				6E8C222B2142AE8900DFB285 /* Info.plist */,
 				6E8C223A2142E5EB00DFB285 /* AutoLayoutTests.swift */,
+				6E8C227D2143D50400DFB285 /* ProductCellTests.swift */,
 				6E8C223D2142E87700DFB285 /* ProductTests.swift */,
 				6E8C22442142EC1100DFB285 /* ShopTests.swift */,
 				6E8C224B2143983600DFB285 /* BadgeTests.swift */,
@@ -171,6 +177,7 @@
 			children = (
 				6E8C22342142CE6100DFB285 /* ProductCell.swift */,
 				6E8C22362142D10F00DFB285 /* AutoLayout.swift */,
+				6E8C227F2143D55C00DFB285 /* ProductCell+ViewConstructor.swift */,
 				6E8C224721438B8100DFB285 /* TenderloinViewController */,
 			);
 			path = ViewController;
@@ -346,6 +353,7 @@
 				6E8C225321439CEE00DFB285 /* RouteType.swift in Sources */,
 				6E8C22792143B07D00DFB285 /* NetworkController.swift in Sources */,
 				6E8C224A2143960600DFB285 /* Badge.swift in Sources */,
+				6E8C22802143D55C00DFB285 /* ProductCell+ViewConstructor.swift in Sources */,
 				6E8C22352142CE6100DFB285 /* ProductCell.swift in Sources */,
 				6E8C22172142AE8800DFB285 /* TenderloinViewController.swift in Sources */,
 				6E8C22392142E49300DFB285 /* Product.swift in Sources */,
@@ -368,6 +376,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6E8C22812143D55C00DFB285 /* ProductCell+ViewConstructor.swift in Sources */,
 				6E8C227B2143CE4D00DFB285 /* AppDelegate.swift in Sources */,
 				6E8C227A2143B07D00DFB285 /* NetworkController.swift in Sources */,
 				6E8C223C2142E61B00DFB285 /* AutoLayout.swift in Sources */,
@@ -389,6 +398,7 @@
 				6E8C226B2143A34600DFB285 /* JSONParameterEncoder.swift in Sources */,
 				6E8C226221439EF700DFB285 /* URLParameterEncoder.swift in Sources */,
 				6E8C22702143A47500DFB285 /* NetworkRouterProtocol.swift in Sources */,
+				6E8C227E2143D50400DFB285 /* ProductCellTests.swift in Sources */,
 				6E8C225E21439EB700DFB285 /* HTTPHeader.swift in Sources */,
 				6E8C222A2142AE8900DFB285 /* TenderloinViewControllerTests.swift in Sources */,
 			);
