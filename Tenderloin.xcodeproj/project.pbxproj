@@ -51,12 +51,20 @@
 		6E8C227B2143CE4D00DFB285 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E8C22142142AE8800DFB285 /* AppDelegate.swift */; };
 		6E8C227C2143CE5700DFB285 /* TenderloinViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E8C22162142AE8800DFB285 /* TenderloinViewController.swift */; };
 		6E8C227E2143D50400DFB285 /* ProductCellTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E8C227D2143D50400DFB285 /* ProductCellTests.swift */; };
-		6E8C22802143D55C00DFB285 /* ProductCell+ViewConstructor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E8C227F2143D55C00DFB285 /* ProductCell+ViewConstructor.swift */; };
-		6E8C22812143D55C00DFB285 /* ProductCell+ViewConstructor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E8C227F2143D55C00DFB285 /* ProductCell+ViewConstructor.swift */; };
 		6E8C228421443C1E00DFB285 /* TenderloinViewController+ViewConstructor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E8C228321443C1E00DFB285 /* TenderloinViewController+ViewConstructor.swift */; };
 		6E8C228521443C1E00DFB285 /* TenderloinViewController+ViewConstructor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E8C228321443C1E00DFB285 /* TenderloinViewController+ViewConstructor.swift */; };
 		6E8C228721443C7E00DFB285 /* TenderloinViewController+DataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E8C228621443C7E00DFB285 /* TenderloinViewController+DataSource.swift */; };
 		6E8C228821443C7E00DFB285 /* TenderloinViewController+DataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E8C228621443C7E00DFB285 /* TenderloinViewController+DataSource.swift */; };
+		6EDACB532144D4F500325893 /* ProductInfoStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EDACB522144D4F500325893 /* ProductInfoStackView.swift */; };
+		6EDACB542144D4F500325893 /* ProductInfoStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EDACB522144D4F500325893 /* ProductInfoStackView.swift */; };
+		6EDACB592144E1F200325893 /* ProductImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EDACB582144E1F200325893 /* ProductImageView.swift */; };
+		6EDACB5A2144E1F200325893 /* ProductImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EDACB582144E1F200325893 /* ProductImageView.swift */; };
+		6EDACB5C2144E3F100325893 /* UICollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EDACB5B2144E3F100325893 /* UICollectionViewCell.swift */; };
+		6EDACB5D2144E3F100325893 /* UICollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EDACB5B2144E3F100325893 /* UICollectionViewCell.swift */; };
+		6EDACB5F2144E45A00325893 /* UILabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EDACB5E2144E45A00325893 /* UILabel.swift */; };
+		6EDACB602144E45A00325893 /* UILabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EDACB5E2144E45A00325893 /* UILabel.swift */; };
+		6EDACB622144E48E00325893 /* UIStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EDACB612144E48E00325893 /* UIStackView.swift */; };
+		6EDACB632144E48E00325893 /* UIStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EDACB612144E48E00325893 /* UIStackView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -100,9 +108,13 @@
 		6E8C22742143ADC200DFB285 /* TokopediaAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokopediaAPI.swift; sourceTree = "<group>"; };
 		6E8C22782143B07D00DFB285 /* NetworkController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkController.swift; sourceTree = "<group>"; };
 		6E8C227D2143D50400DFB285 /* ProductCellTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductCellTests.swift; sourceTree = "<group>"; };
-		6E8C227F2143D55C00DFB285 /* ProductCell+ViewConstructor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ProductCell+ViewConstructor.swift"; sourceTree = "<group>"; };
 		6E8C228321443C1E00DFB285 /* TenderloinViewController+ViewConstructor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TenderloinViewController+ViewConstructor.swift"; sourceTree = "<group>"; };
 		6E8C228621443C7E00DFB285 /* TenderloinViewController+DataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TenderloinViewController+DataSource.swift"; sourceTree = "<group>"; };
+		6EDACB522144D4F500325893 /* ProductInfoStackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductInfoStackView.swift; sourceTree = "<group>"; };
+		6EDACB582144E1F200325893 /* ProductImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductImageView.swift; sourceTree = "<group>"; };
+		6EDACB5B2144E3F100325893 /* UICollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UICollectionViewCell.swift; sourceTree = "<group>"; };
+		6EDACB5E2144E45A00325893 /* UILabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UILabel.swift; sourceTree = "<group>"; };
+		6EDACB612144E48E00325893 /* UIStackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIStackView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -259,11 +271,23 @@
 		6E8C228221443A9B00DFB285 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				6EDACB642144E4A000325893 /* Extension */,
 				6E8C22342142CE6100DFB285 /* ProductCell.swift */,
-				6E8C227F2143D55C00DFB285 /* ProductCell+ViewConstructor.swift */,
 				6E8C22362142D10F00DFB285 /* AutoLayout.swift */,
+				6EDACB522144D4F500325893 /* ProductInfoStackView.swift */,
+				6EDACB582144E1F200325893 /* ProductImageView.swift */,
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		6EDACB642144E4A000325893 /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				6EDACB612144E48E00325893 /* UIStackView.swift */,
+				6EDACB5B2144E3F100325893 /* UICollectionViewCell.swift */,
+				6EDACB5E2144E45A00325893 /* UILabel.swift */,
+			);
+			path = Extension;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -367,20 +391,24 @@
 			buildActionMask = 2147483647;
 			files = (
 				6E8C225321439CEE00DFB285 /* RouteType.swift in Sources */,
+				6EDACB592144E1F200325893 /* ProductImageView.swift in Sources */,
 				6E8C22792143B07D00DFB285 /* NetworkController.swift in Sources */,
 				6E8C224A2143960600DFB285 /* Badge.swift in Sources */,
-				6E8C22802143D55C00DFB285 /* ProductCell+ViewConstructor.swift in Sources */,
+				6EDACB5F2144E45A00325893 /* UILabel.swift in Sources */,
 				6E8C228421443C1E00DFB285 /* TenderloinViewController+ViewConstructor.swift in Sources */,
 				6E8C22352142CE6100DFB285 /* ProductCell.swift in Sources */,
 				6E8C22172142AE8800DFB285 /* TenderloinViewController.swift in Sources */,
 				6E8C22392142E49300DFB285 /* Product.swift in Sources */,
 				6E8C226A2143A34600DFB285 /* JSONParameterEncoder.swift in Sources */,
+				6EDACB622144E48E00325893 /* UIStackView.swift in Sources */,
+				6EDACB532144D4F500325893 /* ProductInfoStackView.swift in Sources */,
 				6E8C225721439DE300DFB285 /* HTTPMethod.swift in Sources */,
 				6E8C226121439EF700DFB285 /* URLParameterEncoder.swift in Sources */,
 				6E8C225A21439E1100DFB285 /* HTTPTask.swift in Sources */,
 				6E8C226F2143A47500DFB285 /* NetworkRouterProtocol.swift in Sources */,
 				6E8C22752143ADC200DFB285 /* TokopediaAPI.swift in Sources */,
 				6E8C22722143A66800DFB285 /* NetworkRouter.swift in Sources */,
+				6EDACB5C2144E3F100325893 /* UICollectionViewCell.swift in Sources */,
 				6E8C22422142EA0900DFB285 /* Shop.swift in Sources */,
 				6E8C225D21439EB700DFB285 /* HTTPHeader.swift in Sources */,
 				6E8C228721443C7E00DFB285 /* TenderloinViewController+DataSource.swift in Sources */,
@@ -395,9 +423,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				6E8C228521443C1E00DFB285 /* TenderloinViewController+ViewConstructor.swift in Sources */,
-				6E8C22812143D55C00DFB285 /* ProductCell+ViewConstructor.swift in Sources */,
 				6E8C227B2143CE4D00DFB285 /* AppDelegate.swift in Sources */,
+				6EDACB542144D4F500325893 /* ProductInfoStackView.swift in Sources */,
 				6E8C227A2143B07D00DFB285 /* NetworkController.swift in Sources */,
+				6EDACB602144E45A00325893 /* UILabel.swift in Sources */,
 				6E8C223C2142E61B00DFB285 /* AutoLayout.swift in Sources */,
 				6E8C22762143ADC200DFB285 /* TokopediaAPI.swift in Sources */,
 				6E8C224C2143983600DFB285 /* BadgeTests.swift in Sources */,
@@ -410,13 +439,16 @@
 				6E8C223B2142E5EB00DFB285 /* AutoLayoutTests.swift in Sources */,
 				6E8C227C2143CE5700DFB285 /* TenderloinViewController.swift in Sources */,
 				6E8C225821439DE300DFB285 /* HTTPMethod.swift in Sources */,
+				6EDACB5D2144E3F100325893 /* UICollectionViewCell.swift in Sources */,
 				6E8C224F21439C7300DFB285 /* ProductCell.swift in Sources */,
 				6E8C22732143A66800DFB285 /* NetworkRouter.swift in Sources */,
 				6E8C224D2143983B00DFB285 /* Badge.swift in Sources */,
 				6E8C22682143A0AA00DFB285 /* ParameterEncoderProtocol.swift in Sources */,
 				6E8C226B2143A34600DFB285 /* JSONParameterEncoder.swift in Sources */,
 				6E8C226221439EF700DFB285 /* URLParameterEncoder.swift in Sources */,
+				6EDACB5A2144E1F200325893 /* ProductImageView.swift in Sources */,
 				6E8C22702143A47500DFB285 /* NetworkRouterProtocol.swift in Sources */,
+				6EDACB632144E48E00325893 /* UIStackView.swift in Sources */,
 				6E8C227E2143D50400DFB285 /* ProductCellTests.swift in Sources */,
 				6E8C225E21439EB700DFB285 /* HTTPHeader.swift in Sources */,
 				6E8C222A2142AE8900DFB285 /* TenderloinViewControllerTests.swift in Sources */,

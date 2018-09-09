@@ -42,24 +42,3 @@ extension UIView {
         rightAnchor.constraint(equalTo: superview.rightAnchor, constant: -padding).isActive = true
     }
 }
-
-
-extension UIStackView {
-    convenience init(arrangedSubviews: [UIView], axis: UILayoutConstraintAxis, spacing: CGFloat = 16.0) {
-        self.init()
-        self.distribution = .fillEqually
-        self.spacing = spacing
-        self.axis = axis
-        for view in arrangedSubviews {
-            self.addArrangedSubview(view)
-        }
-    }
-}
-
-extension UILabel {
-    convenience init(text: String, font: UIFont = UIFont.systemFont(ofSize: 16)) {
-        self.init()
-        self.text = text
-        self.font = font
-    }
-}
