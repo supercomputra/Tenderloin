@@ -36,8 +36,24 @@ extension TenderloinViewController {
                 """
             )
         }
-        navigationController.navigationBar.barTintColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
+        let filterBarButtonItem = UIBarButtonItem(title: "Filter", style: .plain, target: self, action: #selector(presentFilterView))
+        navigationItem.rightBarButtonItem = filterBarButtonItem
         navigationItem.title = title
+        navigationController.navigationBar.barTintColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
+    }
+    
+    @objc private func presentFilterView() {
+        filterView.frame = CGRect(x: 0, y: self.view.frame.height, width: self.view.frame.width, height: self.view.frame.height * 2 / 3)
+        let containerView = UIView(frame: UIScreen.main.bounds)
+        containerView.backgroundColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1).withAlphaComponent(0)
+        let window = UIApplication.shared.keyWindow!
+        containerView.addSubview(filterView)
+        window.addSubview(containerView)
+
+        UIView.animate(withDuration: 0.3, animations: {
+            containerView.backgroundColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1).withAlphaComponent(0.6)
+            self.filterView.frame.origin.y -= self.view.frame.height * 2 / 3
+        })
     }
     
     private func setCollectionView() {

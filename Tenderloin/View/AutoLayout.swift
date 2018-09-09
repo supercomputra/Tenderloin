@@ -18,7 +18,7 @@ extension UIView {
         widthAnchor.constraint(equalTo: heightAnchor, multiplier: ratio).isActive = true
     }
     
-    func matchSuperviewHeight(withPadding padding: CGFloat = 0) {
+    func matchSuperviewTopAnchor(withPadding padding: CGFloat = 0) {
         guard let superview = superview else {
             fatalError("""
                 The view doesn't have superview.
@@ -27,10 +27,9 @@ extension UIView {
             )
         }
         topAnchor.constraint(equalTo: superview.topAnchor, constant: padding).isActive = true
-        bottomAnchor.constraint(equalTo: superview.bottomAnchor, constant: -padding).isActive = true
     }
     
-    func matchSuperviewWidth(withPadding padding: CGFloat = 0) {
+    func matchSuperviewBottomAnchor(withPadding padding: CGFloat = 0) {
         guard let superview = superview else {
             fatalError("""
                 The view doesn't have superview.
@@ -38,7 +37,38 @@ extension UIView {
                 """
             )
         }
-        leftAnchor.constraint(equalTo: superview.leftAnchor, constant: padding).isActive = true
-        rightAnchor.constraint(equalTo: superview.rightAnchor, constant: -padding).isActive = true
+        bottomAnchor.constraint(equalTo: superview.bottomAnchor, constant: -padding).isActive = true
+    }
+    
+    func matchSuperviewLeadingAnchor(withPadding padding: CGFloat = 0) {
+        guard let superview = superview else {
+            fatalError("""
+                The view doesn't have superview.
+                Make sure the view has been added as a subview to another view.
+                """
+            )
+        }
+        leadingAnchor.constraint(equalTo: superview.leadingAnchor, constant: padding).isActive = true
+    }
+    
+    func matchSuperviewTrailingAnchor(withPadding padding: CGFloat = 0) {
+        guard let superview = superview else {
+            fatalError("""
+                The view doesn't have superview.
+                Make sure the view has been added as a subview to another view.
+                """
+            )
+        }
+        trailingAnchor.constraint(equalTo: superview.trailingAnchor, constant: -padding).isActive = true
+    }
+    
+    func matchSuperviewHeight(withPadding padding: CGFloat = 0) {
+        matchSuperviewTopAnchor(withPadding: padding)
+        matchSuperviewBottomAnchor(withPadding: padding)
+    }
+    
+    func matchSuperviewWidth(withPadding padding: CGFloat = 0) {
+        matchSuperviewLeadingAnchor(withPadding: padding)
+        matchSuperviewTrailingAnchor(withPadding: padding)
     }
 }

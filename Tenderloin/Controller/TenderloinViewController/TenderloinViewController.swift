@@ -10,7 +10,11 @@ import UIKit
 
 class TenderloinViewController: UICollectionViewController {
     let cellIdentifier = "ProductCell"
+    
     var networkController: NetworkController!
+    
+    let filterView = FilterView()
+    
     var products: [Product]? {
         didSet {
             DispatchQueue.main.async {
@@ -26,6 +30,8 @@ class TenderloinViewController: UICollectionViewController {
         }
     }
     
+    
+    
     init(networkController: NetworkController, layout: UICollectionViewFlowLayout) {
         super.init(collectionViewLayout: layout)
         self.networkController = networkController
@@ -39,7 +45,6 @@ class TenderloinViewController: UICollectionViewController {
         super.viewDidLoad()
         setUp()
     }
-
 }
 
 extension TenderloinViewController {
