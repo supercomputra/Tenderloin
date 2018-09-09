@@ -8,8 +8,15 @@
 
 import UIKit
 
-extension UICollectionViewCell {
+extension UIView {
     func setShadow(_ corners: UIRectCorner = [], radius: CGFloat = 0, withShadow: Bool = true) {
+        guard let superview = superview else {
+            fatalError("""
+                The view doesn't have superview.
+                Make sure the view has been added as a subview to another view.
+                """
+            )
+        }
         var path: CGPath?
         
         if corners == [] {
@@ -19,16 +26,16 @@ extension UICollectionViewCell {
         }
         
         if withShadow {
-            layer.masksToBounds = false
-            layer.shadowColor = UIColor.gray.cgColor
-            layer.shadowOffset = CGSize(width: 0, height: 0)
-            layer.shadowRadius = 2.0
-            layer.shadowOpacity = 0.5
-            layer.shadowPath = path!
+            superview.layer.masksToBounds = false
+            superview.layer.shadowColor = UIColor.gray.cgColor
+            superview.layer.shadowOffset = CGSize(width: 0, height: 0)
+            superview.layer.shadowRadius = 2.0
+            superview.layer.shadowOpacity = 0.5
+            superview.layer.shadowPath = path!
         }
         
         let mask = CAShapeLayer()
         mask.path = path!
-        contentView.layer.mask = mask
+        self.layer.mask = mask
     }
 }

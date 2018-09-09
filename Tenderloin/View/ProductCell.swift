@@ -50,11 +50,11 @@ extension ProductCell {
         let radius: CGFloat = 8.0
         switch position {
         case .top:
-            setShadow([.topLeft, .topRight], radius: radius)
+            contentView.setShadow([.topLeft, .topRight], radius: radius)
         case .bottom:
-            setShadow([.bottomLeft, .bottomRight], radius: radius)
+            contentView.setShadow([.bottomLeft, .bottomRight], radius: radius)
         default:
-            setShadow()
+            contentView.setShadow()
         }
     }
     

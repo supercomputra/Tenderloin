@@ -1,0 +1,16 @@
+PODS:
+  - WARangeSlider (1.1.1)
+
+DEPENDENCIES:
+  - WARangeSlider
+
+SPEC REPOS:
+  https://github.com/cocoapods/specs.git:
+    - WARangeSlider
+
+SPEC CHECKSUMS:
+  WARangeSlider: 54b3e0853b8d16c444fd539005901aecee86837d
+
+PODFILE CHECKSUM: 107c0624883cfaea80da6a598bbb0109e7ca0e7c
+
+COCOAPODS: 1.5.3
