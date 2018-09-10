@@ -12,7 +12,18 @@ extension TenderloinViewController {
     func setUp() {
         setNavigationController()
         setCollectionView()
+        resetProducts()
+    }
+    
+    func resetProducts() {
+        let activityIndicator = UIActivityIndicatorView(activityIndicatorStyle: .gray)
+        collectionView?.addSubview(activityIndicator)
+        activityIndicator.center = collectionView!.center
+        let navigationBarHeight = navigationController!.navigationBar.frame.size.height
+        activityIndicator.center = CGPoint(x: collectionView!.center.x, y: collectionView!.center.y - navigationBarHeight)
+        activityIndicator.startAnimating()
         getProducts { (products: [Product]?) in
+            activityIndicator.removeFromSuperview()
             self.products = products
         }
     }
@@ -55,7 +66,7 @@ extension TenderloinViewController {
         containerView.addSubview(filterView)
         window.addSubview(containerView)
         filterView.frame = CGRect(x: 8, y: UIScreen.main.bounds.height, width: containerView.frame.width - 16, height: FilterView.height)
-
+        filterView.tenderloinViewControllerSetupDelegate = self
         UIView.animate(withDuration: 0.3, animations: {
             containerView.backgroundColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1).withAlphaComponent(0.6)
             self.filterView.frame.origin.y -= (FilterView.height + 8)

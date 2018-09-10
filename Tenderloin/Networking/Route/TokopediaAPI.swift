@@ -60,6 +60,7 @@ extension TokopediaAPI: RouteType {
                 "start": startingIndex,
                 "rows": items
             ]
+            print(parameters)
             return .requestWithParameters(bodyParameters: nil, urlParameters: parameters)
         }
     }

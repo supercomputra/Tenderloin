@@ -11,8 +11,14 @@ import Foundation
 extension TenderloinViewController {
     typealias GetProductsCompletionHandler = ((_ products: [Product]?) -> Void)?
     
-    func getProducts(completionHandler: GetProductsCompletionHandler = nil) {
-        networkController.searchProducts(key: "Philips", minPrice: "0", maxPrice: "10000", isWholesale: false, isOfficial: true, golds: 3, startingIndex: 0, items: 30) { (products: [Product]?, errorMessage: String?) in
+    func getProducts(startingIndex: Int = 0, completionHandler: GetProductsCompletionHandler = nil) {
+        let isWholeSale = UserDefaults.standard.object(forKey: "isWholeSale") as! Bool
+//        let isGoldMerchant = UserDefaults.standard.object(forKey: "isGoldMerchant") as! Bool
+        let isOfficialStore = UserDefaults.standard.object(forKey: "isOfficialStore") as! Bool
+        let minPrice = UserDefaults.standard.object(forKey: "minPrice") ?? 0
+        let maxPrice = UserDefaults.standard.object(forKey: "maxPrice") ?? 0
+
+        networkController.searchProducts(key: "Philips", minPrice: "\(minPrice)", maxPrice: "\(maxPrice)", isWholesale: isWholeSale, isOfficial: isOfficialStore, golds: 3, startingIndex: startingIndex, items: 10) { (products: [Product]?, errorMessage: String?) in
             if let errorMessage = errorMessage, errorMessage != "" {
                 if let handler = completionHandler {
                     handler(nil)

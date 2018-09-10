@@ -15,10 +15,13 @@ class FilterView: UIView {
 
     private var initialTouchPoint: CGPoint?
     
+    var tenderloinViewControllerSetupDelegate: TenderloinViewControllerSetupDelegate!
+    
     let headerView: UIStackView = {
         let filterLabel = UILabel(text: "Filter", font: UIFont.systemFont(ofSize: 24.0, weight: .bold))
         let resetButton = UIButton(type: UIButtonType.custom)
         resetButton.setTitle("Reset", for: .normal)
+        resetButton.addTarget(self, action: #selector(reset), for: .touchUpInside)
         resetButton.setTitleColor(TokopediaColor.main, for: .normal)
         return UIStackView(arrangedSubviews: [filterLabel, resetButton], axis: .horizontal, distribution: .equalSpacing)
     }()
@@ -33,33 +36,40 @@ class FilterView: UIView {
         return view
     }()
     
-    private var pricingFilterView: PricingFilterView?
+    var pricingFilterView: PricingFilterView?
     
-    private var wholsaleFilterView: UIStackView = {
+    var wholsaleFilterView: UIStackView = {
         let label = UILabel(text: "Wholesale", font: UIFont.systemFont(ofSize: 18, weight: .regular))
         let switcher = UISwitch(frame: CGRect(x: 0, y: 0, width: 0, height: 0))
         switcher.onTintColor = TokopediaColor.main
+        let isWholesale = UserDefaults.standard.object(forKey: "isWholesale") as? Bool ?? false
+        switcher.isOn = isWholesale
         let view = UIStackView(arrangedSubviews: [label, switcher], axis: .horizontal, distribution: .equalSpacing)
         view.alignment = .center
         view.heightAnchor.constraint(equalToConstant: 32.0).isActive = true
         return view
     }()
     
-    private var goldMerchantFilterView: UIStackView = {
+    var goldMerchantFilterView: UIStackView = {
         let label = UILabel(text: "Gold Merchant", font: UIFont.systemFont(ofSize: 18, weight: .regular))
         let switcher = UISwitch(frame: CGRect(x: 0, y: 0, width: 0, height: 0))
         switcher.onTintColor = TokopediaColor.main
+        let isGoldMerchant = UserDefaults.standard.object(forKey: "isGoldMerchant") as? Bool ?? false
+        switcher.isOn = isGoldMerchant
         let view = UIStackView(arrangedSubviews: [label, switcher], axis: .horizontal, distribution: .equalSpacing)
         view.alignment = .center
         view.heightAnchor.constraint(equalToConstant: 32.0).isActive = true
         return view
     }()
     
-    private var officialStoreFilterView: UIStackView = {
+    var officialStoreFilterView: UIStackView = {
         let label = UILabel(text: "Official Store", font: UIFont.systemFont(ofSize: 18, weight: .regular))
         let switcher = UISwitch(frame: CGRect(x: 0, y: 0, width: 0, height: 0))
+        let isOfficialStore = UserDefaults.standard.object(forKey: "isOfficialStore") as? Bool ?? false
+        switcher.isOn = isOfficialStore
         let view = UIStackView(arrangedSubviews: [label, switcher], axis: .horizontal, distribution: .equalSpacing)
         view.alignment = .center
+        
         view.heightAnchor.constraint(equalToConstant: 32.0).isActive = true
         return view
     }()
@@ -83,7 +93,7 @@ class FilterView: UIView {
         let stackView = UIStackView(arrangedSubviews: [gestureView, contentStackView, bottomWhiteSpace], axis: .vertical, distribution: .equalSpacing)
         applyButton.heightAnchor.constraint(equalToConstant: 48.0).isActive = true
         applyButton.translatesAutoresizingMaskIntoConstraints = false
-        applyButton.addTarget(self, action: #selector(animateToDismiss), for: .touchUpInside)
+        applyButton.addTarget(self, action: #selector(apply), for: .touchUpInside)
         addSubview(stackView)
         gestureView.heightAnchor.constraint(equalToConstant: 16.0).isActive = true
         bottomWhiteSpace.heightAnchor.constraint(equalToConstant: 24.0).isActive = true
@@ -104,7 +114,17 @@ class FilterView: UIView {
         super.init(coder: aDecoder)
     }
     
-    @objc private func animateToDismiss() {
+    @objc private func apply() {
+        tenderloinViewControllerSetupDelegate.setFilter(self, reset: false)
+        animateToDismiss()
+    }
+    
+    @objc private func reset() {
+        tenderloinViewControllerSetupDelegate.setFilter(self, reset: true)
+        animateToDismiss()
+    }
+    
+    private func animateToDismiss() {
         guard let superview = self.superview else {
             fatalError("""
                     The view doesn't have superview.
@@ -116,7 +136,6 @@ class FilterView: UIView {
             superview.backgroundColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1).withAlphaComponent(0)
             self.frame = CGRect(x: FilterView.padding, y: UIScreen.main.bounds.height, width: self.frame.size.width, height: self.frame.size.height)
         }) { _ in
-            
             superview.removeFromSuperview()
         }
     }

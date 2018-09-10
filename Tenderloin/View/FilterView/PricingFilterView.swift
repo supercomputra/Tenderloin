@@ -15,25 +15,30 @@ class PricingFilterView: UIView {
         let slider = RangeSlider(frame: CGRect(x: 0, y: 0, width: UIScreen.main.bounds.width, height: 64.0))
         slider.minimumValue = 0.0
         slider.maximumValue = 10000000.0
-        slider.lowerValue = 0
+        let minPrice = UserDefaults.standard.object(forKey: "minPrice") as? Int ?? 0
+        slider.lowerValue = Double(minPrice)
+        let maxPrice = UserDefaults.standard.object(forKey: "maxPrice") as? Int ?? 10000000
+        slider.upperValue = Double(maxPrice)
         slider.upperValue = 10000000
         slider.trackHighlightTintColor = TokopediaColor.main
         return slider
     }()
     
-    private var minPriceStackView: UIStackView = {
+    var minPriceStackView: UIStackView = {
         let minPriceLabel = UILabel(text: "Min Price", font: UIFont.systemFont(ofSize: 14.0, weight: .regular))
-        let minPriceNumberLabel = UILabel(text: "Rp 0", font: UIFont.systemFont(ofSize: 18.0, weight: .medium))
+        let minPrice = UserDefaults.standard.object(forKey: "minPrice") as? Int ?? 0
+        let minPriceNumberLabel = UILabel(text: "Rp \(minPrice)", font: UIFont.systemFont(ofSize: 18.0, weight: .medium))
         minPriceNumberLabel.textColor = #colorLiteral(red: 0.6000000238, green: 0.6000000238, blue: 0.6000000238, alpha: 1)
         let minPriceStackView = UIStackView(arrangedSubviews: [minPriceLabel, minPriceNumberLabel], axis: .vertical, distribution: .fillProportionally)
         minPriceStackView.spacing = 8
         return minPriceStackView
     }()
     
-    private var maxPriceStackView: UIStackView = {
+    var maxPriceStackView: UIStackView = {
         let maxPriceLabel = UILabel(text: "Max Price", font: UIFont.systemFont(ofSize: 14.0, weight: .regular))
         maxPriceLabel.textAlignment = .right
-        let maxPriceNumberLabel = UILabel(text: "Rp 10000000", font: UIFont.systemFont(ofSize: 18.0, weight: .medium))
+        let maxPrice = UserDefaults.standard.object(forKey: "maxPrice") as? Int ?? 10000000
+        let maxPriceNumberLabel = UILabel(text: "Rp \(maxPrice)", font: UIFont.systemFont(ofSize: 18.0, weight: .medium))
         maxPriceNumberLabel.textColor = #colorLiteral(red: 0.6000000238, green: 0.6000000238, blue: 0.6000000238, alpha: 1)
         maxPriceNumberLabel.textAlignment = .right
         let maxPriceStackView = UIStackView(arrangedSubviews: [maxPriceLabel, maxPriceNumberLabel], axis: .vertical, distribution: .fillProportionally)
