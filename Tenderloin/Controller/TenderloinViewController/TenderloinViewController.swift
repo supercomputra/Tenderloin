@@ -11,13 +11,24 @@ import UIKit
 class TenderloinViewController: UICollectionViewController {
     let cellIdentifier = "ProductCell"
     
+    var keyword: String?
+    
     var networkController: NetworkController!
     
+    private var isEndOfTheResult = false
+    
     let filterView = FilterView()
+    
+    let noProductsFoundLabel = UILabel(text: "No Products Found", font: UIFont.systemFont(ofSize: 16.0))
     
     var products: [Product]? {
         didSet {
             DispatchQueue.main.async {
+                guard self.products != nil, self.products?.count != 0 else {
+                    self.setNoProductsFoundLabel()
+                    return
+                }
+                
                 guard let collectionView = self.collectionView else {
                     fatalError("""
                         TenderloinViewController doesn't have a collectionView.
@@ -53,7 +64,7 @@ protocol TenderloinViewControllerSetupDelegate {
 
 extension TenderloinViewController {
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        guard let products = products else {
+        guard let products = self.products else {
             return 0
         }
         if section == 0 {
@@ -63,10 +74,10 @@ extension TenderloinViewController {
                 return 10
             }
         } else {
-            if products.count % (section * 10) == 0 {
+            if products.count % 10 == 0 {
                 return 10
             } else {
-                return products.count % (section * 10)
+                return products.count % 10
             }
         }
     }
@@ -85,7 +96,11 @@ extension TenderloinViewController {
         } else if indexPath.row == 9 {
             cell.position = .bottom
         } else {
-            cell.position = .middle
+            if products.count % 10 == indexPath.row + 1 {
+                cell.position = .bottom
+            } else {
+                cell.position = .middle
+            }
         }
         return cell
     }
@@ -94,7 +109,12 @@ extension TenderloinViewController {
         guard let products = self.products else {
             return 0
         }
-        return products.count / 10
+        if products.count < 10 {
+            return 1
+        } else {
+            return products.count / 10
+        }
+        
     }
 }
 
@@ -111,34 +131,17 @@ extension TenderloinViewController {
             return
         }
         
-        if indexPath.section == 0 {
-            if indexPath.row == products.count - 1 {
-                // Download next items
-                getProducts(startingIndex: products.count) { (extraProducts: [Product]?) in
-                    if self.products != nil {
-                        guard let extraProducts = extraProducts else {
-                            return
-                        }
-                        self.products! += extraProducts
-                        print(products.count)
+        if indexPath.row == 9 {
+            getProducts(startingIndex: products.count) { (extraProducts: [Product]?) in
+                if self.products != nil {
+                    guard let extraProducts = extraProducts else {
+                        self.products = nil
+                        return
                     }
-                }
-            }
-        } else {
-            if indexPath.row == 9 {
-                // Download next items
-                getProducts(startingIndex: products.count) { (extraProducts: [Product]?) in
-                    if self.products != nil {
-                        guard let extraProducts = extraProducts else {
-                            return
-                        }
-                        self.products! += extraProducts
-                        print(products.count)
-                    }
+                    self.products! += extraProducts
                 }
             }
         }
-        
     }
 }
 
@@ -187,12 +190,8 @@ extension TenderloinViewController: TenderloinViewControllerSetupDelegate {
         }
         products = nil
         collectionView?.reloadData()
-        
         resetProducts()
-        
     }
-    
-    
 }
 
 

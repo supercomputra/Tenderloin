@@ -21,9 +21,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
-        let networkController = NetworkController()
-        let viewController = TenderloinViewController(networkController: networkController, layout: UICollectionViewFlowLayout())
-        self.window = getWindow(with: viewController)
+//        let networkController = NetworkController()
+//        let viewController = TenderloinViewController(networkController: networkController, layout: UICollectionViewFlowLayout())
+        self.window = getWindow(with: HomeViewController())
         return true
     }
 

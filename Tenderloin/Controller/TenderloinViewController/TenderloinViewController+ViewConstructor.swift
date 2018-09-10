@@ -24,8 +24,25 @@ extension TenderloinViewController {
         activityIndicator.startAnimating()
         getProducts { (products: [Product]?) in
             activityIndicator.removeFromSuperview()
+            if products != nil {
+                if products?.count != 0 {
+                    self.noProductsFoundLabel.removeFromSuperview()
+                }
+            }
             self.products = products
         }
+    }
+    
+    func setNoProductsFoundLabel() {
+        var extraSpace: CGFloat = 0.0
+        if let navigationController = navigationController {
+            extraSpace = navigationController.navigationBar.frame.size.height
+        }
+        
+        noProductsFoundLabel.center = (collectionView?.center)!
+        noProductsFoundLabel.frame = CGRect(x: 0, y: 0, width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height - extraSpace)
+        noProductsFoundLabel.textAlignment = .center
+        collectionView!.addSubview(self.noProductsFoundLabel)
     }
     
     private func setNavigationController(withTitle title: String = "Home") {
@@ -57,6 +74,7 @@ extension TenderloinViewController {
         navigationController.navigationBar.isTranslucent = false
         navigationController.navigationBar.titleTextAttributes = textAttr
         navigationController.navigationBar.barTintColor = TokopediaColor.main
+        navigationController.navigationBar.tintColor = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
     }
     
     @objc private func presentFilterView() {

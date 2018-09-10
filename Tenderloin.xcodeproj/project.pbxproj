@@ -59,6 +59,10 @@
 		6E95B7CA21462D440026A5C2 /* TokopediaColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E95B7C921462D440026A5C2 /* TokopediaColor.swift */; };
 		6E95B7CB21464F390026A5C2 /* TokopediaColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E95B7C921462D440026A5C2 /* TokopediaColor.swift */; };
 		6E95B7CC21464F450026A5C2 /* PricingFilterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E0E752B2145786D00C07502 /* PricingFilterView.swift */; };
+		6E95B7CE214660F00026A5C2 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E95B7CD214660F00026A5C2 /* HomeViewController.swift */; };
+		6E95B7CF214660F00026A5C2 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E95B7CD214660F00026A5C2 /* HomeViewController.swift */; };
+		6E95B7D42146654A0026A5C2 /* TenderloinSearchBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E95B7D32146654A0026A5C2 /* TenderloinSearchBar.swift */; };
+		6E95B7D52146654A0026A5C2 /* TenderloinSearchBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E95B7D32146654A0026A5C2 /* TenderloinSearchBar.swift */; };
 		6EDACB532144D4F500325893 /* ProductInfoStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EDACB522144D4F500325893 /* ProductInfoStackView.swift */; };
 		6EDACB542144D4F500325893 /* ProductInfoStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EDACB522144D4F500325893 /* ProductInfoStackView.swift */; };
 		6EDACB592144E1F200325893 /* ProductImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EDACB582144E1F200325893 /* ProductImageView.swift */; };
@@ -122,6 +126,8 @@
 		6E8C228321443C1E00DFB285 /* TenderloinViewController+ViewConstructor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TenderloinViewController+ViewConstructor.swift"; sourceTree = "<group>"; };
 		6E8C228621443C7E00DFB285 /* TenderloinViewController+DataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TenderloinViewController+DataSource.swift"; sourceTree = "<group>"; };
 		6E95B7C921462D440026A5C2 /* TokopediaColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokopediaColor.swift; sourceTree = "<group>"; };
+		6E95B7CD214660F00026A5C2 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		6E95B7D32146654A0026A5C2 /* TenderloinSearchBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TenderloinSearchBar.swift; sourceTree = "<group>"; };
 		6EDACB522144D4F500325893 /* ProductInfoStackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductInfoStackView.swift; sourceTree = "<group>"; };
 		6EDACB582144E1F200325893 /* ProductImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductImageView.swift; sourceTree = "<group>"; };
 		6EDACB5B2144E3F100325893 /* UIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIView.swift; sourceTree = "<group>"; };
@@ -225,6 +231,7 @@
 			isa = PBXGroup;
 			children = (
 				6E8C224721438B8100DFB285 /* TenderloinViewController */,
+				6E95B7CD214660F00026A5C2 /* HomeViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -308,6 +315,7 @@
 				6EDACB522144D4F500325893 /* ProductInfoStackView.swift */,
 				6EDACB582144E1F200325893 /* ProductImageView.swift */,
 				6E95B7C921462D440026A5C2 /* TokopediaColor.swift */,
+				6E95B7D32146654A0026A5C2 /* TenderloinSearchBar.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -536,10 +544,12 @@
 				6E8C226A2143A34600DFB285 /* JSONParameterEncoder.swift in Sources */,
 				6EDACB622144E48E00325893 /* UIStackView.swift in Sources */,
 				6EDACB532144D4F500325893 /* ProductInfoStackView.swift in Sources */,
+				6E95B7D42146654A0026A5C2 /* TenderloinSearchBar.swift in Sources */,
 				6E8C225721439DE300DFB285 /* HTTPMethod.swift in Sources */,
 				6E8C226121439EF700DFB285 /* URLParameterEncoder.swift in Sources */,
 				6E8C225A21439E1100DFB285 /* HTTPTask.swift in Sources */,
 				6E8C226F2143A47500DFB285 /* NetworkRouterProtocol.swift in Sources */,
+				6E95B7CE214660F00026A5C2 /* HomeViewController.swift in Sources */,
 				6E8C22752143ADC200DFB285 /* TokopediaAPI.swift in Sources */,
 				6E8C22722143A66800DFB285 /* NetworkRouter.swift in Sources */,
 				6EDACB5C2144E3F100325893 /* UIView.swift in Sources */,
@@ -559,8 +569,10 @@
 				6E8C228521443C1E00DFB285 /* TenderloinViewController+ViewConstructor.swift in Sources */,
 				6E8C227B2143CE4D00DFB285 /* AppDelegate.swift in Sources */,
 				6EDACB542144D4F500325893 /* ProductInfoStackView.swift in Sources */,
+				6E95B7D52146654A0026A5C2 /* TenderloinSearchBar.swift in Sources */,
 				6E8C227A2143B07D00DFB285 /* NetworkController.swift in Sources */,
 				6EDACB602144E45A00325893 /* UILabel.swift in Sources */,
+				6E95B7CF214660F00026A5C2 /* HomeViewController.swift in Sources */,
 				6E8C223C2142E61B00DFB285 /* AutoLayout.swift in Sources */,
 				6E8C22762143ADC200DFB285 /* TokopediaAPI.swift in Sources */,
 				6E8C224C2143983600DFB285 /* BadgeTests.swift in Sources */,
