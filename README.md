@@ -5,7 +5,7 @@
 ### Home
 <img src="https://github.com/ZulwiyozaPutra/Tenderloin/raw/master/Screenshots/Home.png" width="255">
 <br />
-Home with omni search bar. Enter to start search.
+Home with omni search bar. Enter to start your search.
 
 ### Result
 <img src="https://github.com/ZulwiyozaPutra/Tenderloin/raw/master/Screenshots/Result.png" width="255">
