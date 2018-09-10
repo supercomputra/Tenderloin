@@ -23,7 +23,10 @@ extension TenderloinViewController {
         activityIndicator.center = CGPoint(x: collectionView!.center.x, y: collectionView!.center.y - navigationBarHeight)
         activityIndicator.startAnimating()
         getProducts { (products: [Product]?) in
-            activityIndicator.removeFromSuperview()
+            DispatchQueue.main.async {
+                activityIndicator.removeFromSuperview()
+            }
+            
             if products != nil {
                 if products?.count != 0 {
                     self.noProductsFoundLabel.removeFromSuperview()

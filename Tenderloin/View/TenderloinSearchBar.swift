@@ -30,5 +30,6 @@ class TenderloinSearchBar: UITextField {
         placeholder = "Search something here ..."
         layer.cornerRadius = 8.0
         autocorrectionType = .no
+        keyboardType = .webSearch
     }
 }
