@@ -13,6 +13,11 @@ class NetworkRouter<Route: RouteType>: NetworkRouterProtcol {
     private var task: URLSessionTask?
     
     func request(_ route: Route, completionHandler: @escaping NetworkRouterCompletionHandler) {
+        guard hasInternetConnection() else {
+            // TODO: Handle if no internet connection here
+            return
+        }
+        
         let session = URLSession.shared
         do {
             let request = try buildRequest(from: route)
@@ -26,7 +31,17 @@ class NetworkRouter<Route: RouteType>: NetworkRouterProtcol {
         self.task?.resume()
     }
     
+    private func hasInternetConnection() -> Bool {
+        // TODO: Check if the internet connection avialable here
+        return true
+    }
+    
     func request(_ url: URL, completionHandler: @escaping NetworkRouterCompletionHandler) {
+        guard hasInternetConnection() else {
+            // TODO: Handle if no internet connection here
+            return
+        }
+        
         let session = URLSession.shared
         let request = URLRequest(url: url)
         task = session.dataTask(with: request, completionHandler: { (data: Data?, response: URLResponse?, error: Error?) in
