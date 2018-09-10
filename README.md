@@ -1,5 +1,9 @@
 # Tenderloin
 
+## Demo
+
+![](Screenshots/Demo/Demo.gif)
+
 ## Screenshots
 
 ### Home
