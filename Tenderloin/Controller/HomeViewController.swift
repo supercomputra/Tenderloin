@@ -21,9 +21,12 @@ class HomeViewController: UIViewController {
         return label
     }()
     
+    var stackView: UIStackView!
+    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        UIApplication.shared.statusBarStyle = .lightContent
+        hideNavigationBar()
+        
     }
     override var preferredStatusBarStyle : UIStatusBarStyle {
         return .lightContent
@@ -32,16 +35,23 @@ class HomeViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = TokopediaColor.main
-        let stackView = UIStackView(arrangedSubviews: [tenderloinSearchTitle, searchBar], axis: .vertical, distribution: .fillProportionally)
+        stackView = UIStackView(arrangedSubviews: [tenderloinSearchTitle, searchBar], axis: .vertical, distribution: .fillProportionally)
         view.addSubview(stackView)
         searchBar.heightAnchor.constraint(equalToConstant: 40.0).isActive = true
         stackView.spacing = 16.0
-        let navigationBarHeight = navigationController!.navigationBar.frame.size.height
-        stackView.matchSuperviewTopAnchor(withPadding: 128.0 + navigationBarHeight)
         stackView.matchSuperviewWidth(withPadding: 32.0)
         stackView.translatesAutoresizingMaskIntoConstraints = false
         hideNavigationBar()
         searchBar.delegate = self
+        guard let navigationController = navigationController else {
+            fatalError("""
+                TenderloinViewController doesn't have a navigationController.
+                Make sure the TenderloinViewController has been set as a root of a UINavigationController.
+                """
+            )
+        }
+        let navigationBarHeight = navigationController.navigationBar.frame.size.height
+        stackView.matchSuperviewTopAnchor(withPadding: 2 * navigationBarHeight)
     }
     
 }
@@ -54,10 +64,17 @@ extension HomeViewController: UITextFieldDelegate {
     }
     
     func hideNavigationBar() {
-        self.navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
-        self.navigationController?.navigationBar.shadowImage = UIImage()
-        self.navigationController?.navigationBar.isTranslucent = true
-        self.navigationController?.view.backgroundColor = .clear
+        guard let navigationController = navigationController else {
+            fatalError("""
+                TenderloinViewController doesn't have a navigationController.
+                Make sure the TenderloinViewController has been set as a root of a UINavigationController.
+                """
+            )
+        }
+        navigationController.navigationBar.setBackgroundImage(UIImage(), for: .default)
+        navigationController.navigationBar.shadowImage = UIImage()
+        navigationController.navigationBar.isTranslucent = true
+        navigationController.view.backgroundColor = .clear
     }
     
     func pushToTenderloinViewController() {
