@@ -25,8 +25,8 @@ class HomeViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        UIApplication.shared.statusBarStyle = .lightContent
         hideNavigationBar()
-        
     }
     override var preferredStatusBarStyle : UIStatusBarStyle {
         return .lightContent
