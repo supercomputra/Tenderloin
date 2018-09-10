@@ -13,17 +13,19 @@ struct Product {
     let name: String
     let price: String
     let shop: Shop
+    let uri: String
     let imageURI: String
     var imageData: Data?
     let badges: [BadgeType]
     
-    init(id: Int, name: String, price: String, shop: Shop, imageURI: String, badges: [BadgeType]) {
+    init(id: Int, name: String, price: String, uri: String, shop: Shop, imageURI: String, badges: [BadgeType]) {
         self.id = id
         self.name = name
         self.price = price
         self.shop = shop
         self.imageURI = imageURI
         self.badges = badges
+        self.uri = uri
     }
 }
 
@@ -34,6 +36,7 @@ extension Product: Decodable {
         case price = "price"
         case imageURI = "image_uri"
         case shop = "shop"
+        case uri = "uri"
     }
     
     init(from decoder: Decoder) throws {
@@ -43,6 +46,7 @@ extension Product: Decodable {
         price = try container.decode(String.self, forKey: .price)
         imageURI = try container.decode(String.self, forKey: .imageURI)
         shop = try container.decode(Shop.self, forKey: .shop)
+        uri = try container.decode(String.self, forKey: .uri)
         badges = []
     }
 }

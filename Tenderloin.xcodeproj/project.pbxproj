@@ -57,6 +57,8 @@
 		6E8C228721443C7E00DFB285 /* TenderloinViewController+DataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E8C228621443C7E00DFB285 /* TenderloinViewController+DataSource.swift */; };
 		6E8C228821443C7E00DFB285 /* TenderloinViewController+DataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E8C228621443C7E00DFB285 /* TenderloinViewController+DataSource.swift */; };
 		6E95B7CA21462D440026A5C2 /* TokopediaColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E95B7C921462D440026A5C2 /* TokopediaColor.swift */; };
+		6E95B7CB21464F390026A5C2 /* TokopediaColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E95B7C921462D440026A5C2 /* TokopediaColor.swift */; };
+		6E95B7CC21464F450026A5C2 /* PricingFilterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E0E752B2145786D00C07502 /* PricingFilterView.swift */; };
 		6EDACB532144D4F500325893 /* ProductInfoStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EDACB522144D4F500325893 /* ProductInfoStackView.swift */; };
 		6EDACB542144D4F500325893 /* ProductInfoStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EDACB522144D4F500325893 /* ProductInfoStackView.swift */; };
 		6EDACB592144E1F200325893 /* ProductImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EDACB582144E1F200325893 /* ProductImageView.swift */; };
@@ -573,6 +575,8 @@
 				6E8C227C2143CE5700DFB285 /* TenderloinViewController.swift in Sources */,
 				6E8C225821439DE300DFB285 /* HTTPMethod.swift in Sources */,
 				6EDACB5D2144E3F100325893 /* UIView.swift in Sources */,
+				6E95B7CC21464F450026A5C2 /* PricingFilterView.swift in Sources */,
+				6E95B7CB21464F390026A5C2 /* TokopediaColor.swift in Sources */,
 				6E8C224F21439C7300DFB285 /* ProductCell.swift in Sources */,
 				6E8C22732143A66800DFB285 /* NetworkRouter.swift in Sources */,
 				6E8C224D2143983B00DFB285 /* Badge.swift in Sources */,

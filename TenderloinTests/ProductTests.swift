@@ -18,7 +18,7 @@ class ProductTests: XCTestCase {
     
     override func setUp() {
         super.setUp()
-        product = Product(id: 1, name: "Samsung", price: "Rp 32.000", shop: shop, imageURI: "", badges: [BadgeType.gold, BadgeType.official])
+        product = Product(id: 1, name: "Samsung", price: "Rp 32.000", uri: "https://product.com", shop: shop, imageURI: "", badges: [BadgeType.gold, BadgeType.official])
     }
     
     override func tearDown() {
@@ -34,6 +34,8 @@ class ProductTests: XCTestCase {
         XCTAssertEqual(product.name, "Samsung")
         XCTAssertNotNil(product.price)
         XCTAssertEqual(product.price, "Rp 32.000")
+        XCTAssertNotNil(product.uri)
+        XCTAssertEqual(product.uri, "https://product.com")
         XCTAssertNotNil(product.imageURI)
         XCTAssertEqual(product.imageURI, "")
         XCTAssertNotNil(product.shop)
@@ -46,6 +48,7 @@ class ProductTests: XCTestCase {
             "id": 1,
             "name": "Samsung",
             "price": "Rp 32.000",
+            "uri": "https://product.com",
             "image_uri": "",
             "badges": [],
             "shop": [

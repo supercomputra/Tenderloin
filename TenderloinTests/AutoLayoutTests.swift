@@ -37,9 +37,10 @@ class AutoLayoutTests: XCTestCase {
     }
     
     func testStackViewHasCustomizedAxis() {
-        let horizontalStackView = UIStackView(arrangedSubviews: [label], axis: .horizontal)
+        let horizontalStackView = UIStackView(arrangedSubviews: [label], axis: .horizontal, distribution: .fill)
+        
         XCTAssertEqual(horizontalStackView.axis, .horizontal)
-        let verticalStackView = UIStackView(arrangedSubviews: [label], axis: .vertical)
+        let verticalStackView = UIStackView(arrangedSubviews: [label], axis: .vertical, distribution: .fill)
         XCTAssertEqual(verticalStackView.axis, .vertical)
     }
     
