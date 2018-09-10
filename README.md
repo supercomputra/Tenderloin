@@ -15,7 +15,7 @@ The result page has dynamic rounded card rendering with card-like design. Also i
 ### Filter
 <img src="https://github.com/ZulwiyozaPutra/Tenderloin/raw/master/Screenshots/Filter.png" width="255">
 <br />
-FilterView is super bouncy. Drag the top edges to play with it. LOL :)
+FilterView is super bouncy with powerful UIKit custom animation. Drag the top edges to play with it. LOL :)
 
 ### Detail
 <img src="https://github.com/ZulwiyozaPutra/Tenderloin/raw/master/Screenshots/Detail.png" width="255">
