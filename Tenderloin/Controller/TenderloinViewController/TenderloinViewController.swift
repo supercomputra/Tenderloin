@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SafariServices
 
 class TenderloinViewController: UICollectionViewController {
     let cellIdentifier = "ProductCell"
@@ -115,6 +116,16 @@ extension TenderloinViewController {
             return products.count / 10
         }
         
+    }
+    
+    override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        guard let products = self.products else {
+            return
+        }
+        let productIndex = indexPath.section * 10 + indexPath.row
+        let url = NSURL(string: products[productIndex].uri)
+        let controller = SFSafariViewController(url: url! as URL)
+        self.present(controller, animated: true, completion: nil)
     }
 }
 
