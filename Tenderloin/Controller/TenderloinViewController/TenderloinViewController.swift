@@ -125,6 +125,7 @@ extension TenderloinViewController {
         let productIndex = indexPath.section * 10 + indexPath.row
         let url = NSURL(string: products[productIndex].uri)
         let controller = SFSafariViewController(url: url! as URL)
+        // Handle SafariViewController statusBar bugs
         self.present(controller, animated: true, completion: nil)
     }
 }
