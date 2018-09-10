@@ -56,6 +56,7 @@
 		6E8C228521443C1E00DFB285 /* TenderloinViewController+ViewConstructor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E8C228321443C1E00DFB285 /* TenderloinViewController+ViewConstructor.swift */; };
 		6E8C228721443C7E00DFB285 /* TenderloinViewController+DataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E8C228621443C7E00DFB285 /* TenderloinViewController+DataSource.swift */; };
 		6E8C228821443C7E00DFB285 /* TenderloinViewController+DataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E8C228621443C7E00DFB285 /* TenderloinViewController+DataSource.swift */; };
+		6E95B7CA21462D440026A5C2 /* TokopediaColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E95B7C921462D440026A5C2 /* TokopediaColor.swift */; };
 		6EDACB532144D4F500325893 /* ProductInfoStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EDACB522144D4F500325893 /* ProductInfoStackView.swift */; };
 		6EDACB542144D4F500325893 /* ProductInfoStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EDACB522144D4F500325893 /* ProductInfoStackView.swift */; };
 		6EDACB592144E1F200325893 /* ProductImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EDACB582144E1F200325893 /* ProductImageView.swift */; };
@@ -118,6 +119,7 @@
 		6E8C227D2143D50400DFB285 /* ProductCellTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductCellTests.swift; sourceTree = "<group>"; };
 		6E8C228321443C1E00DFB285 /* TenderloinViewController+ViewConstructor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TenderloinViewController+ViewConstructor.swift"; sourceTree = "<group>"; };
 		6E8C228621443C7E00DFB285 /* TenderloinViewController+DataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TenderloinViewController+DataSource.swift"; sourceTree = "<group>"; };
+		6E95B7C921462D440026A5C2 /* TokopediaColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokopediaColor.swift; sourceTree = "<group>"; };
 		6EDACB522144D4F500325893 /* ProductInfoStackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductInfoStackView.swift; sourceTree = "<group>"; };
 		6EDACB582144E1F200325893 /* ProductImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductImageView.swift; sourceTree = "<group>"; };
 		6EDACB5B2144E3F100325893 /* UIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIView.swift; sourceTree = "<group>"; };
@@ -303,6 +305,7 @@
 				6E8C22362142D10F00DFB285 /* AutoLayout.swift */,
 				6EDACB522144D4F500325893 /* ProductInfoStackView.swift */,
 				6EDACB582144E1F200325893 /* ProductImageView.swift */,
+				6E95B7C921462D440026A5C2 /* TokopediaColor.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -527,6 +530,7 @@
 				6E8C22352142CE6100DFB285 /* ProductCell.swift in Sources */,
 				6E8C22172142AE8800DFB285 /* TenderloinViewController.swift in Sources */,
 				6E8C22392142E49300DFB285 /* Product.swift in Sources */,
+				6E95B7CA21462D440026A5C2 /* TokopediaColor.swift in Sources */,
 				6E8C226A2143A34600DFB285 /* JSONParameterEncoder.swift in Sources */,
 				6EDACB622144E48E00325893 /* UIStackView.swift in Sources */,
 				6EDACB532144D4F500325893 /* ProductInfoStackView.swift in Sources */,

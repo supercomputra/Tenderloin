@@ -20,8 +20,10 @@ class ProductInfoStackView: UIStackView {
         distribution = .fillProportionally
         let productNameLabel = UILabel(text: product.name, font: UIFont.systemFont(ofSize: 16.0, weight: .medium))
         let productShopNameLabel = UILabel(text: "by \(product.shop.name)", font: UIFont.systemFont(ofSize: 12.0))
+        productShopNameLabel.textColor = UIColor.gray
         let headerView = UIStackView(arrangedSubviews: [productNameLabel, productShopNameLabel], axis: .vertical, distribution: .fillProportionally)
-        let priceLabel = UILabel(text: product.price, font: UIFont.systemFont(ofSize: 20.0, weight: .bold))
+        let priceLabel = UILabel(text: product.price, font: UIFont.systemFont(ofSize: 18.0, weight: .bold))
+        priceLabel.textColor = TokopediaColor.action
         addArrangedSubview(headerView)
         addArrangedSubview(priceLabel)
     }

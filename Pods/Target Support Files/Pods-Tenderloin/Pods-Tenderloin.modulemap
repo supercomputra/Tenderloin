@@ -1,0 +1,6 @@
+framework module Pods_Tenderloin {
+  umbrella header "Pods-Tenderloin-umbrella.h"
+
+  export *
+  module * { export * }
+}

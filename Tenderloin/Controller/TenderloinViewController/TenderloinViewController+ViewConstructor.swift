@@ -37,9 +37,15 @@ extension TenderloinViewController {
             )
         }
         let filterBarButtonItem = UIBarButtonItem(title: "Filter", style: .plain, target: self, action: #selector(presentFilterView))
+        filterBarButtonItem.tintColor = UIColor.white
         navigationItem.rightBarButtonItem = filterBarButtonItem
         navigationItem.title = title
-        navigationController.navigationBar.barTintColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
+        let textAttr = [NSAttributedStringKey.foregroundColor: UIColor.white]
+        navigationController.navigationBar.setBackgroundImage(UIImage(), for: .default)
+        navigationController.navigationBar.shadowImage = UIImage()
+        navigationController.navigationBar.isTranslucent = false
+        navigationController.navigationBar.titleTextAttributes = textAttr
+        navigationController.navigationBar.barTintColor = TokopediaColor.main
     }
     
     @objc private func presentFilterView() {
@@ -48,11 +54,11 @@ extension TenderloinViewController {
         let window = UIApplication.shared.keyWindow!
         containerView.addSubview(filterView)
         window.addSubview(containerView)
-        filterView.frame = CGRect(x: 0, y: containerView.frame.height, width: containerView.frame.width, height: containerView.frame.height - FilterView.topMargin)
+        filterView.frame = CGRect(x: 8, y: UIScreen.main.bounds.height, width: containerView.frame.width - 16, height: FilterView.height)
 
         UIView.animate(withDuration: 0.3, animations: {
             containerView.backgroundColor = #colorLiteral(red: 0, green: 0, blue: 0, alpha: 1).withAlphaComponent(0.6)
-            self.filterView.frame.origin.y -= (containerView.frame.height - FilterView.topMargin)
+            self.filterView.frame.origin.y -= (FilterView.height + 8)
         })
     }
     
@@ -76,6 +82,6 @@ extension TenderloinViewController {
         flow.minimumLineSpacing = 8
         
         collectionView.register(ProductCell.self, forCellWithReuseIdentifier: cellIdentifier)
-        collectionView.backgroundColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
+        collectionView.backgroundColor = TokopediaColor.background
     }
 }
